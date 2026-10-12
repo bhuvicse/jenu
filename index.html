@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ffb6c9;
+    --deep: #e84372;
+    --dark: #390d25;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(145deg, #3b102c, #801d4b, #260d25);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: transform .3s, box-shadow .3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px #ff8fb055;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #ff6f9b;
+    filter: blur(120px);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.glow.one {
+    top: 5%;
+    left: -120px;
+}
+
+.glow.two {
+    bottom: 5%;
+    right: -120px;
+}
+
+.eyebrow {
+    color: #ffd6e3;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 12px Arial, sans-serif;
+    animation: fadeUp 1.2s both;
+}
+
+h1 {
+    font-size: clamp(42px, 10vw, 85px);
+    line-height: 1.1;
+    margin: 25px 0 15px;
+    color: #ffe0e9;
+    text-shadow: 0 0 30px #ff7da5aa;
+    animation: fadeUp 1.4s both;
+}
+
+h1 span {
+    display: block;
+    color: #ff91b5;
+    font-style: italic;
+}
+
+.subtitle {
+    color: #f8dce7;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 440px;
+    animation: fadeUp 1.8s both;
+}
+
+.cake {
+    font-size: 85px;
+    margin: 25px 0;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px #ff96b3);
+}
+
+.primary-btn {
+    padding: 15px 28px;
+    border-radius: 40px;
+    background: linear-gradient(120deg, #ffb5cc, #ff709e);
+    color: #50152f;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 12px;
+    box-shadow: 0 0 25px #ff719e44;
+}
+
+.music-btn {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    z-index: 20;
+    background: #ffffff20;
+    color: white;
+    border: 1px solid #ffffff45;
+    border-radius: 30px;
+    padding: 11px 16px;
+    backdrop-filter: blur(10px);
+}
+
+section {
+    padding: 75px 20px;
+    position: relative;
+}
+
+.section-title {
+    font-size: clamp(30px, 6vw, 45px);
+    color: #ffd8e5;
+    margin-bottom: 18px;
+}
+
+.section-text {
+    color: #f6d4e1;
+    line-height: 1.9;
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 17px;
+}
+
+.card {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 35px 25px;
+    background: #ffffff0d;
+    border: 1px solid #ffc1d42b;
+    border-radius: 25px;
+    box-shadow: 0 15px 60px #17051640;
+    backdrop-filter: blur(12px);
+    line-height: 2;
+    color: #ffe4ed;
+}
+
+.card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffadc7;
+}
+
+#letter {
+    display: none;
+    animation: fadeUp .8s both;
+}
+
+#letter.show {
+    display: block;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 5;
+    animation: rise linear forwards;
+}
+
+footer {
+    padding: 35px 15px;
+    color: #ffcedd;
+    font-style: italic;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Add your song file in the same folder -->
+<audio id="music" loop>
+    <source src="romantic-song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    🎵 Play our song
+</button>
+
+<header class="hero">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <p class="eyebrow">A little surprise, made with love</p>
+
+    <!-- Change the name below -->
+    <h1>Happy Birthday <span>My Love ❤️</span></h1>
+
+    <p class="subtitle">
+        Today is all about you, my favourite person.
+        If I could give you one thing in life, it would be
+        the ability to see yourself through my eyes. 💗
+    </p>
+
+    <div class="cake">🎂</div>
+
+    <button class="primary-btn"
+        onclick="document.getElementById('surprise').scrollIntoView({behavior:'smooth'})">
+        Open your surprise 💌
+    </button>
+</header>
+
+<section id="surprise">
+    <h2 class="section-title">For the boy who has my heart 💕</h2>
+
+    <p class="section-text">
+        Some people make life beautiful just by being in it.
+        You are that person for me. Today, I want to remind
+        you how deeply you are loved.
+    </p>
+
+    <div class="card">
+        <div style="font-size:48px">🌹</div>
+        <h3>A little letter for you</h3>
+
+        <p>
+            My favourite person, my comfort, my happiness...
+            you mean more to me than these little words can say.
+            Your smile makes my days brighter, and every memory
+            with you becomes something I want to keep forever.
+        </p>
+
+        <button class="primary-btn" onclick="openLetter()">
+            Read my secret message 💌
+        </button>
+
+        <div id="letter">
+            <hr style="border-color:#ffb6c944; margin:25px 0">
+
+            <p>
+                Happy Birthday, baby! ❤️
+                <br><br>
+                I wish I could pause time whenever I am with you.
+                I hope this new year of your life brings you
+                happiness, success, peace, and every beautiful
+                thing your heart wishes for.
+                <br><br>
+                Thank you for being a part of my life.
+                I may not always find the perfect words, but
+                my heart will always have a thousand reasons
+                to choose you.
+                <br><br>
+                Today, tomorrow, and in all the little moments
+                in between, you are so special to me.
+                <br><br>
+                I love you, birthday boy. Forever and always. 💋
+            </p>
+
+            <div style="font-size:35px; margin-top:20px">
+                💗 💗 💗
+            </div>
+        </div>
+    </div>
+
+    <button class="primary-btn" onclick="celebrate()">
+    One last surprise ✨
+</button>
+
+<div id="videoSurprise" class="card" style="display:none;">
+    <h3>One little video, just for you ❤️</h3>
+    <p style="margin-bottom:20px;">
+        Every moment with you is a memory I want to keep forever. 🥹💕
+    </p>
+
+    <video id="birthdayVideo"
+           controls
+           playsinline
+           preload="metadata"
+           style="width:100%; max-width:500px; border-radius:18px;">
+        <source src="bff.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+
+    <p style="margin-top:20px;">
+        I love you, birthday boy! 💋❤️
+    </p>
+</div>
+
+</section>
+
+<footer>
+    Made with all my love, just for you. ❤️
+    <p style="margin-top:12px">You are my favourite hello and hardest goodbye.</p>
+</footer>
+
+<script>
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+async function toggleMusic() {
+    if (music.paused) {
+        try {
+            await music.play();
+            musicBtn.textContent = "🎶 Pause our song";
+        } catch (error) {
+            alert("Add romantic-song.mp3 to the same folder as index.html, then try again.");
+        }
+    } else {
+        music.pause();
+        musicBtn.textContent = "🎵 Play our song";
+    }
+}
+
+function openLetter() {
+    const letter = document.getElementById("letter");
+    letter.classList.toggle("show");
+
+    if (letter.classList.contains("show")) {
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        makeHearts(15);
+    }
+}
+
+function makeHearts(count) {
+    const symbols = ["❤️", "💗", "💕", "💖", "🌹"];
+
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = symbols[
+            Math.floor(Math.random() * symbols.length)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 25) + "px";
+        heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+        heart.addEventListener("animationend", () => heart.remove());
+    }
+}
+
+function celebrate() {
+    const surprise = document.getElementById("videoSurprise");
+    const video = document.getElementById("birthdayVideo");
+
+    surprise.style.display = "block";
+    makeHearts(45);
+
+    surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    video.play().catch(() => {
+        // If autoplay is blocked, he can press Play.
+    });
+}
+
+// Gentle floating hearts throughout the page
+setInterval(() => makeHearts(1), 1800);
+</script>
+
+</body>
+</html>
